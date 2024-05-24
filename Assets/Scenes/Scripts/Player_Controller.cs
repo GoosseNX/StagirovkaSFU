@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
 {
     private Animator _animator;
     private Rigidbody _rigidbody;
+    private Ragdoll _ragdoll;
 
     [SerializeField] private float _speed = 3.5f;
     [SerializeField] private float JumpForce = 5f;
@@ -16,14 +17,12 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float turnSpeed = 10f;
     [SerializeField] private float fallMultiplier = 2.5f;
 
-    [SerializeField] private AudioClip[] footsteps;
-    AudioSource playerAudio;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
-        playerAudio = GetComponent<AudioSource>();
+        
     }
     void Update()
     {
@@ -48,6 +47,16 @@ public class Player_Controller : MonoBehaviour
     {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _animator.SetBool("Inter", true);
+
+        }
+        else 
+        {
+            _animator.SetBool("Inter", false);
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -128,12 +137,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    // Метод для синхронизации звуков шагов. Вызывается только в самой анимации - на ней нужно ключи ставить.
-    void FootStep() 
-    {
-        int randInd = Random.Range(0, footsteps.Length);
-        playerAudio.PlayOneShot(footsteps[randInd]);
-    }
+    
 
 
 }

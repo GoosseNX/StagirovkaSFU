@@ -6,7 +6,7 @@ using UnityEngine;
 public class SceneLoad : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    [SerializeField] private Collider MainCollider;
+
 
     private bool _isload = false;
 

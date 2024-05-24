@@ -5,28 +5,35 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField] private KeyCode interactionKey = KeyCode.E;
-    [SerializeField] private float interactionRange = 4f;
-    [SerializeField] GameObject interactionNULL;
-    [SerializeField] private Collider MainCollider;
+    [SerializeField] private KeyCode interactionKey = KeyCode.E; // Кнопка для взаимодействия
+    [SerializeField] private float interactionRange = 4f; // Расстояние для взаимодействия
+    [SerializeField] GameObject interactionNULL; // Пустышка для пуска луча
+    [SerializeField] private AudioClip[] footsteps;
+    AudioSource playerAudio;
 
+
+    private void Start()
+    {
+        playerAudio = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         // Проверка нажатия кнопки взаимодействия
         if (Input.GetKeyDown(interactionKey))
         {
-            InteractWithRay();
+            InteractWithRayForward();
         }
     }
 
-    private void InteractWithRay()
+    private void InteractWithRayForward()
     {
-        // Создание луча от камеры игрока
-        Ray ray = new Ray(interactionNULL.transform.position, interactionNULL.transform.forward);
+        // Создание луча от пустышки
+        Ray RayFrwd = new Ray(interactionNULL.transform.position, interactionNULL.transform.forward);
+        Ray RayDwn = new Ray(interactionNULL.transform.position, -interactionNULL.transform.up);
         RaycastHit hit;
 
         // Проверка пересечения луча с объектами
-        if (Physics.Raycast(ray, out hit, interactionRange))
+        if (Physics.Raycast(RayFrwd, out hit, interactionRange))
         {
             // Проверка наличия тега "Actor" у объекта
             if (hit.collider.CompareTag("Actor"))
@@ -37,21 +44,26 @@ public class PlayerInteraction : MonoBehaviour
                     actor.StartAction();
                 }
             }
-            if (hit.collider.CompareTag("Coin"))
+        }
+        if (Physics.Raycast(RayDwn, out hit, interactionRange))
+        {
+            // Проверка наличия тега "Actor" у объекта
+            if (hit.collider.CompareTag("Actor"))
             {
-                Actor _CoinEvent = hit.collider.GetComponent<Actor>();
-                if (_CoinEvent != null)
+                Actor actor = hit.collider.GetComponent<Actor>();
+                if (actor != null)
                 {
-                    _CoinEvent.StartAction();
+                    Debug.Log("actor");
+                    actor.StartAction();
+                    
                 }
+
             }
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (MainCollider)
-        {
             if (collision.CompareTag("Actor"))
             {
                 Actor actor = collision.GetComponent<Actor>();
@@ -60,15 +72,14 @@ public class PlayerInteraction : MonoBehaviour
                     actor.StartAction();
                 }
             }
-            
-        }
+
     }
+
 
     // Выход из тригера запускает второе действие
     private void OnTriggerExit(Collider collision)
     {
-        if (MainCollider)
-        {
+
             if (collision.CompareTag("Actor"))
             {
                 Actor actor = collision.GetComponent<Actor>();
@@ -77,7 +88,19 @@ public class PlayerInteraction : MonoBehaviour
                     actor.StopAction();
                 }
             }
-        }
+        
+    }
+
+    // Метод для синхронизации звуков шагов. Вызывается только в самой анимации - на ней нужно ключи ставить.
+    void FootStep()
+    {
+        int randInd = Random.Range(0, footsteps.Length);
+        playerAudio.PlayOneShot(footsteps[randInd]);
+    }
+    void Grub()
+    {
+
+
     }
 
 }
