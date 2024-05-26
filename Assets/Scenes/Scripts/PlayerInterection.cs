@@ -53,9 +53,7 @@ public class PlayerInteraction : MonoBehaviour
                 Actor actor = hit.collider.GetComponent<Actor>();
                 if (actor != null)
                 {
-                    Debug.Log("actor");
                     actor.StartAction();
-                    
                 }
 
             }

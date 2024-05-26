@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796b75e345bd64d47a31edd757bd2670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_Root: {fileID: 1944977908034510448}
     m_Tip: {fileID: 3380448576495010827}
@@ -1766,8 +1766,8 @@ Transform:
   m_GameObject: {fileID: 437543629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.58, y: 0.5, z: -1.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.58, y: 0.147, z: -1.03}
+  m_LocalScale: {x: 2.1744, y: 0.29854, z: 2.4275}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2896,8 +2896,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.020151924, y: 0.96119153, z: -0.07301676, w: -0.26527962}
-  m_LocalPosition: {x: 9.24, y: 8.51, z: 29.723007}
+  m_LocalRotation: {x: -0.0028938393, y: 0.99703217, z: -0.0479737, w: -0.060142353}
+  m_LocalPosition: {x: -3.9127426, y: 8.51, z: 58.858074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3157,64 +3157,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1011525300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603868098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c6a6c8051ee8f42bc775cf8d20555b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IK_Controller: {fileID: 1286148189}
-  IK_Position: {fileID: 603868098}
-  CIKC: {fileID: 0}
-  transitionDuration: 0
---- !u!114 &1011525301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603868098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ebf802d7f33d04da21f8e6864f2e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnActivateAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1011525300}
-        m_TargetAssemblyTypeName: IK_Point1, Assembly-CSharp
-        m_MethodName: IK_On
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OffActivateAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1011525300}
-        m_TargetAssemblyTypeName: IK_Point1, Assembly-CSharp
-        m_MethodName: IK_Off
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1012626569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4252,12 +4194,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 776c6e83d8590fa4e9b1b44c41404c9c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1011525296}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 776c6e83d8590fa4e9b1b44c41404c9c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1011525301}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 776c6e83d8590fa4e9b1b44c41404c9c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1011525300}
   m_SourcePrefab: {fileID: 100100000, guid: 776c6e83d8590fa4e9b1b44c41404c9c, type: 3}
 --- !u!1 &1225805219
 GameObject:
@@ -6670,7 +6606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IK_Controller: {fileID: 1286148189}
   IK_Position: {fileID: 919132148413602520}
-  CIKC: {fileID: 0}
+  CIKC: {fileID: 106031795}
   transitionDuration: 1
 --- !u!1 &1810893434
 GameObject:
@@ -8013,10 +7949,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.799827e-10
-  m_Height: 0.0000000038999133
-  m_Direction: 0
-  m_Center: {x: 0.0000000019499566, y: 0, z: 0}
+  m_Radius: 0.0008862706
+  m_Height: 0.0062328377
+  m_Direction: 1
+  m_Center: {x: -0.00002654368, y: 0.0026302258, z: -0.000104883635}
 --- !u!4 &3379719992843123057
 Transform:
   m_ObjectHideFlags: 0

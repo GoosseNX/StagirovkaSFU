@@ -25,7 +25,7 @@ public class IK_Point : MonoBehaviour
 
 
     // костыль который передвигает контроллер в позицию объекта (я в процессе поиска лучшего решения)
-    public void FixedUpdate()
+    public void Update()
     {
         if (YesOrNo == true) 
         {
