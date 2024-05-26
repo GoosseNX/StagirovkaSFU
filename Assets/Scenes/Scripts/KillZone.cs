@@ -12,7 +12,7 @@ public class KillZone : MonoBehaviour
             Ragdoll ragdoll = player.GetComponent<Ragdoll>();
             if (ragdoll != null)
             {
-                ragdoll.Enable();
+                ragdoll.Enable(); // запуск метода в скрипте рагдолл
             }
 
         }

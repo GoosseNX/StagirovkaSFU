@@ -10,7 +10,7 @@ public class IK_Point1 : MonoBehaviour
     [SerializeField] private ChainIKConstraint CIKC = null; // MultiAimConstraint для изменения веса контроля
     [SerializeField] private float transitionDuration = 1.0f; // Продолжительность перехода
     private bool YesOrNo;
-    private Vector3 IKPosition; // будущая позиция для контроллера
+    private Vector3 IKPosition; // будущая позиция для контроллера (точка интереса)
     private Vector3 DefaultIKPosition; // позиция по умолчанию
 
 
@@ -23,7 +23,7 @@ public class IK_Point1 : MonoBehaviour
         DefaultIKPosition = IK_Controller.transform.position;
     }
 
-    // костыль который передвигает контроллер в позицию объекта (я в процессе поиска лучшего решения)
+    // Здесь я обновляю позицию пустышки-контроллера и ставлю в позицию точки интереса
     public void FixedUpdate()
     {
         if (YesOrNo == true)

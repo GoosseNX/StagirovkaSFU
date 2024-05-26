@@ -10,7 +10,7 @@ public class IK_Point : MonoBehaviour
     [SerializeField] private MultiAimConstraint MAC = null; // MultiAimConstraint для изменения веса контроля
     [SerializeField] private float transitionDuration = 1.0f; // Продолжительность перехода
     private bool YesOrNo;
-    private Vector3 IKPosition; // будущая позиция для контроллера
+    private Vector3 IKPosition; // будущая позиция для контроллера (точка интереса)
     private Vector3 DefaultIKPosition; // позиция по умолчанию
 
 
@@ -24,7 +24,7 @@ public class IK_Point : MonoBehaviour
     }
 
 
-    // костыль который передвигает контроллер в позицию объекта (я в процессе поиска лучшего решения)
+    // Здесь я обновляю позицию пустышки-контроллера и ставлю в позицию точки интереса
     public void Update()
     {
         if (YesOrNo == true) 
